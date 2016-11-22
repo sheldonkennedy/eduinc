@@ -49,7 +49,7 @@ function calculateFees() {
         if (enrolment == "newstudent") {
 
             total += feeValues[enteringGrade].registration;
-            $("#registration").val(feeValues[enteringGrade].registration);
+            $("#registration").val(feeValues[enteringGrade].registration.toFixed(2));
 
         } else {
 
@@ -58,17 +58,17 @@ function calculateFees() {
         }
 
         total += feeValues[enteringGrade].deposit;
-        $("#deposit").val(feeValues[enteringGrade].deposit);
+        $("#deposit").val(feeValues[enteringGrade].deposit.toFixed(2));
 
-        var tuition = feeValues[enteringGrade].monthly * 12;
+        var tuition = (feeValues[enteringGrade].monthly * 12)
         if (paymentFrequency == "perterm") { tuition * 95.0/100.0 }
         if (paymentFrequency == "peryear") { tuition * 92.0/100.0 }
 
         total += tuition
-        $("#tuition").val(tuition);
+        $("#tuition").val(tuition.toFixed(2));
 
         total += feeValues[enteringGrade].annual;
-        $("#curriculum").val(feeValues[enteringGrade].annual);
+        $("#curriculum").val(feeValues[enteringGrade].annual.toFixed(2));
 
 
 
@@ -77,7 +77,7 @@ function calculateFees() {
         $("#deposit").val("0");
         $("#tuition").val("0");
         $("#curriculum").val("0");
-        
+
     }
 
     if (optionalFET == "egd") {
@@ -87,10 +87,11 @@ function calculateFees() {
 
     } else {
 
-        $("#fetsubjects").val("0");
+        $("#fetsubjects").val("0.00");
 
     }
 
+    total = total.toFixed(2);
     $("#total").val(total);
 
 
