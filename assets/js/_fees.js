@@ -68,7 +68,7 @@ function calculateFees() {
         if (paymentFrequency == "peryear") { tuition = tuition * 92.0/100.0 }
 
         total += tuition
-        $("#tuition").val(tuition.toFixed(2).replace(".",","));
+        $("#tuition").val("R " + tuition.toFixed(2).replace(".",","));
 
         total += feeValues[enteringGrade].annual;
         $("#curriculum").val("R " +feeValues[enteringGrade].annual.toFixed(2).replace(".",","));
