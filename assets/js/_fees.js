@@ -49,51 +49,68 @@ function calculateFees() {
         if (enrolment == "newstudent") {
 
             total += feeValues[enteringGrade].registration;
-            $("#registration").val(feeValues[enteringGrade].registration.toFixed(2));
+            $("#registration").val("R " + feeValues[enteringGrade].registration.toFixed(2).replace(".",","));
+
+            total += feeValues[enteringGrade].deposit;
+            $("#deposit").val("R " +feeValues[enteringGrade].deposit.toFixed(2).replace(".",","));
 
         } else {
 
-            $("#registration").val(0);
+            $("#registration").val("R 0,00");
+            $("#deposit").val("R 0,00");
 
         }
 
-        total += feeValues[enteringGrade].deposit;
-        $("#deposit").val(feeValues[enteringGrade].deposit.toFixed(2));
+
 
         var tuition = (feeValues[enteringGrade].monthly * 12)
-        if (paymentFrequency == "perterm") { tuition * 95.0/100.0 }
-        if (paymentFrequency == "peryear") { tuition * 92.0/100.0 }
+        if (paymentFrequency == "perterm") { tuition = tuition * 95.0/100.0 }
+        if (paymentFrequency == "peryear") { tuition = tuition * 92.0/100.0 }
 
         total += tuition
-        $("#tuition").val(tuition.toFixed(2));
+        $("#tuition").val(tuition.toFixed(2).replace(".",","));
 
         total += feeValues[enteringGrade].annual;
-        $("#curriculum").val(feeValues[enteringGrade].annual.toFixed(2));
+        $("#curriculum").val("R " +feeValues[enteringGrade].annual.toFixed(2).replace(".",","));
 
 
 
     } else {
 
-        $("#deposit").val("0");
-        $("#tuition").val("0");
-        $("#curriculum").val("0");
+
+        $("#tuition").val("R 0,00");
+        $("#curriculum").val("R 0,00");
 
     }
 
     if (optionalFET == "egd") {
 
         total += 1687.50;
-        $("#fetsubjects").val("1687.50");
+        $("#fetsubjects").val("R 1687,50");
 
     } else {
 
-        $("#fetsubjects").val("0.00");
+        $("#fetsubjects").val("R 0,00");
 
     }
 
-    total = total.toFixed(2);
-    $("#total").val(total);
+    $("#total").val("R " + total.toFixed(2).replace(".",","));
 
+}
+
+function reset() {
+
+    var enrolment = $("#enrolment")[0].selectedIndex = 0;
+    var enteringGrade = $("#enteringGrade")[0].selectedIndex = 0;
+    var optionalFET = $("#optionalFET")[0].selectedIndex = 0;
+    var paymentFrequency = $("#paymentFrequency")[0].selectedIndex = 0;
+
+    $("#registration").val("R 0,00");
+    $("#deposit").val("R 0,00");
+    $("#tuition").val("R 0,00");
+    $("#curriculum").val("R 0,00");
+    $("#fetsubjects").val("R 0,00");
+    $("#total").val("R 0,00");
 
 
 }
