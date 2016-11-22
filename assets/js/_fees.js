@@ -25,6 +25,20 @@ onload = setRadios;
 
 function calculateFees() {
 
-    alert("CALCULATE FEES HERE");
+    var enrolment = $("#enrolment").val();
+    var enteringGrade = $("#enteringGrade").val();
+    var optionalFET = $("#optionalFET").val();
+    var paymentFrequency = $("#paymentFrequency").val();
+
+    alert("CALCULATE FEES HERE SELECTS: " + enrolment + " | " + enteringGrade + " | " + optionalFET + " | " + paymentFrequency);
+
+    $("#registration").val("based on some calculation");
+    $("#deposit").val("based on some calculation");
+    $("#tuition").val("based on some calculation");
+    $("#curriculum").val("based on some calculation");
+    $("#fetsubjects").val("based on some calculation");
+    $("#total").val("based on some calculation");
+
+
 
 }

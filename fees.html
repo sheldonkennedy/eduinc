@@ -92,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Enrolment</td>
 											<td>
-												<select name="select">
+												<select name="select" id="enrolment">
 													<option value="" selected>Select...</option>
 													<option value="newstudent">New Student</option>
 													<option value="currentlyenrolled">Currently Enrolled</option>
@@ -102,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Entering Grade</td>
 											<td>
-												<select name="select">
+												<select name="select" id="enteringGrade">
 													<option value="" selected>Select...</option>
 													<option value="4">4</option>
 													<option value="5">5</option>
@@ -119,7 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Optional FET Subjects</td>
 											<td>
-												<select name="select">
+												<select name="select" id="optionalFET">
 													<option value="" selected>Select...</option>
 													<option value="optionalfetsubjects">EGD</option>
 													<option value="optionalfetsubjects">None</option>
@@ -129,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Payment Frequency</td>
 											<td>
-												<select name="select">
+												<select name="select" id="paymentFrequency">
 													<option value="" selected>Select...</option>
 													<option value="permonth">Monthly</option>
 													<option value="perterm">Per Term (less 5%)</option>
@@ -165,7 +165,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										</tr>
 										<tr>
 											<td>FET Subjects Fee<span>Includes VAT.</span></td>
-											<td><input id="curriculum" type="text" value="0" readonly></td>
+											<td><input id="fetsubjects" type="text" value="0" readonly></td>
 										</tr>
 										<tr>
 											<td>Total</td>
