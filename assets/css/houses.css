@@ -1,0 +1,140 @@
+/* Icon iconfeatures */
+
+	.iconfeatures {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin: 0 0 2em -3em;
+		width: calc(100% + 3em);
+	}
+
+		.iconfeatures article {
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			margin: 0 0 3em 3em;
+			position: relative;
+			width: calc(50% - 3em);
+			background-color: #f8f8f8;
+			border-radius: 0.375em;
+			border: solid 1px rgba(210, 215, 217, 0.75);
+		}
+
+			.iconfeatures article img {
+				max-width: 200px;
+				padding: 0 2em 0 0;
+			}
+
+			.iconfeatures article p {
+				white-space: pre-wrap; /* css-3 */
+				white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+				white-space: -pre-wrap; /* Opera 4-6 */
+				white-space: -o-pre-wrap; /* Opera 7 */
+				word-wrap: break-word; /* Internet Explorer 5.5+ */
+				padding: 0.5em 0 0 0;
+			}
+
+		@media screen and (max-width: 980px) {
+
+			.iconfeatures {
+				margin: 0 0 2em 0;
+				width: 100%;
+			}
+
+				.iconfeatures article {
+					margin: 0 0 3em 0;
+					width: 100%;
+				}
+
+}
+
+		@media screen and (max-width: 480px) {
+
+			.iconfeatures article {
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-moz-align-items: -moz-flex-start;
+				-webkit-align-items: -webkit-flex-start;
+				-ms-align-items: -ms-flex-start;
+				align-items: center;
+			}
+
+					.iconfeatures article .content {
+						text-align: center;
+					}
+
+					.iconfeatures article .content p {
+						text-align: center;
+					}
+
+			.iconfeatures article img {
+				padding: 0 0 0.3em 0;
+			}
+
+		}
+
+/* iFrame Graph */
+
+.graph {
+	display: block;
+	float: left;
+}
+
+	.graph iframe {
+			-moz-transform: scale(0.7);
+			-webkit-transform: scale(0.7);
+			-ms-transform: scale(0.7);
+			transform: scale(0.7);
+			transform-origin: 0 0 0;
+			width: 440px;
+			height: 440px;
+			margin: 0 -5em -7em 0;
+	}
+
+	
+
+	@media screen and (max-width: 736px) {
+
+		.graph {
+			float: none;
+			white-space: pre;
+			clear: both;
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		.graph iframe {
+				-moz-transform: scale(0.6);
+				-webkit-transform: scale(0.6);
+				-ms-transform: scale(0.6);
+				transform: scale(0.6);
+				margin: 0 -11em -10.5em 0;
+		}
+
+	}
+
+	@media screen and (max-width: 360px) {
+
+		.graph iframe {
+			-moz-transform: scale(0.55);
+			-webkit-transform: scale(0.55);
+			-ms-transform: scale(0.55);
+			transform: scale(0.55);
+			margin: 0 -13em -14em 0;
+		}
+
+	}
