@@ -45,6 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<![endif]-->
 		<!-- Calculate Fees Code -->
         <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/formatFees.js"></script>
         <script src="assets/js/_fees.js"></script>
 	</head>
 	<body>
@@ -92,7 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Enrolment</td>
 											<td>
-												<select name="select" id="enrolment">
+												<select name="select" id="enrolment" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
 													<option value="newstudent">New Student</option>
 													<option value="currentlyenrolled">Currently Enrolled</option>
@@ -102,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Entering Grade</td>
 											<td>
-												<select name="select" id="enteringGrade">
+												<select name="select" id="enteringGrade" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
 													<option value="4">4</option>
 													<option value="5">5</option>
@@ -119,7 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Optional FET Subjects</td>
 											<td>
-												<select name="select" id="optionalFET">
+												<select name="select" id="optionalFET" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
 													<option value="egd">EGD</option>
 													<option value="none">None</option>
@@ -129,7 +130,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<tr>
 											<td>Payment Frequency</td>
 											<td>
-												<select name="select" id="paymentFrequency">
+												<select name="select" id="paymentFrequency" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
 													<option value="permonth">Monthly</option>
 													<option value="perterm">Per Term (less 5%)</option>
@@ -141,7 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								</table>
 
 							<ul class="actions small">
-								<li><a class="button small disabled" onClick="calculateFees()">Calculate</a></li>
+								<li><a class="button small disabled" id="calcButton" onClick="calculateFees()">Calculate</a></li>
 								<li><a class="button small" onClick="reset()">Reset</a></li>
 							</ul>
 

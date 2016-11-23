@@ -34,6 +34,7 @@ feeValues = {
     "12" : { monthly: 8920.00, annual:  8983.08, registration: 5312.40, deposit: 8920.00}
 }
 
+fetValue = 1687.50;
 
 function calculateFees() {
 
@@ -49,15 +50,15 @@ function calculateFees() {
         if (enrolment == "newstudent") {
 
             total += feeValues[enteringGrade].registration;
-            $("#registration").val("R " + feeValues[enteringGrade].registration.toFixed(2).replace(".",","));
+            $("#registration").val("R" + feeValues[enteringGrade].registration.formatMoney());
 
             total += feeValues[enteringGrade].deposit;
-            $("#deposit").val("R " +feeValues[enteringGrade].deposit.toFixed(2).replace(".",","));
+            $("#deposit").val("R" +feeValues[enteringGrade].deposit.formatMoney());
 
         } else {
 
-            $("#registration").val("R 0,00");
-            $("#deposit").val("R 0,00");
+            $("#registration").val("R" + (0.0).formatMoney());
+            $("#deposit").val("R" + (0.0).formatMoney());
 
         }
 
@@ -68,49 +69,67 @@ function calculateFees() {
         if (paymentFrequency == "peryear") { tuition = tuition * 92.0/100.0 }
 
         total += tuition
-        $("#tuition").val("R " + tuition.toFixed(2).replace(".",","));
+        $("#tuition").val("R" + tuition.formatMoney());
 
         total += feeValues[enteringGrade].annual;
-        $("#curriculum").val("R " +feeValues[enteringGrade].annual.toFixed(2).replace(".",","));
+        $("#curriculum").val("R" +feeValues[enteringGrade].annual.formatMoney());
 
 
 
     } else {
 
 
-        $("#tuition").val("R 0,00");
-        $("#curriculum").val("R 0,00");
+        $("#tuition").val("R" + (0.0).formatMoney());
+        $("#curriculum").val("R" + (0.0).formatMoney());
 
     }
 
     if (optionalFET == "egd") {
 
-        total += 1687.50;
-        $("#fetsubjects").val("R 1687,50");
+        total += fetValue;
+        $("#fetsubjects").val("R" + fetValue.formatMoney());
 
     } else {
 
-        $("#fetsubjects").val("R 0,00");
+        $("#fetsubjects").val("R" + (0.0).formatMoney());
 
     }
 
-    $("#total").val("R " + total.toFixed(2).replace(".",","));
+    $("#total").val("R" + total.formatMoney());
 
 }
 
 function reset() {
 
-    var enrolment = $("#enrolment")[0].selectedIndex = 0;
-    var enteringGrade = $("#enteringGrade")[0].selectedIndex = 0;
-    var optionalFET = $("#optionalFET")[0].selectedIndex = 0;
-    var paymentFrequency = $("#paymentFrequency")[0].selectedIndex = 0;
+    $("#enrolment")[0].selectedIndex = 0;
+    $("#enteringGrade")[0].selectedIndex = 0;
+    $("#optionalFET")[0].selectedIndex = 0;
+    $("#paymentFrequency")[0].selectedIndex = 0;
 
-    $("#registration").val("R 0,00");
-    $("#deposit").val("R 0,00");
-    $("#tuition").val("R 0,00");
-    $("#curriculum").val("R 0,00");
-    $("#fetsubjects").val("R 0,00");
-    $("#total").val("R 0,00");
+    $("#registration").val("R" + (0.0).formatMoney());
+    $("#deposit").val("R" + (0.0).formatMoney());
+    $("#tuition").val("R" + (0.0).formatMoney());
+    $("#curriculum").val("R" + (0.0).formatMoney());
+    $("#fetsubjects").val("R" + (0.0).formatMoney());
+    $("#total").val("R" + (0.0).formatMoney());
+
+    $("#calcButton").removeClass("disabled").addClass("disabled")
+
+}
+
+function selectionChange() {
+
+    if ($("#enrolment").val() == "" || $("#enteringGrade").val() == "" ||
+        $("#optionalFET").val() == "" || $("#paymentFrequency").val() == "")
+    {
+
+        $("#calcButton").removeClass("disabled").addClass("disabled")
+
+    } else {
+
+        $("#calcButton").removeClass("disabled");
+
+    }
 
 
 }

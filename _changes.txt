@@ -1,5 +1,16 @@
 1) Remove space after rand sign.
+DONE
+
 2) Add comma as thousand separator, period as rand/cent separator “R1,000.00.”
+DONE
+
 3) Can we set the default total to format as R0.00 instead of just 0?
+DONE
+
 4) The disabled button state is class="button small disabled”.
+USED but...
+
 5) Can we hide <table class="feesresult"> until Calculate is clicked? Reset should also hide it.
+
+...There is some facebook analytics script that is interfering with me being able to set class values when clicking on
+the reset button...
