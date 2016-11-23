@@ -113,7 +113,7 @@ function reset() {
     $("#fetsubjects").val("R" + (0.0).formatMoney());
     $("#total").val("R" + (0.0).formatMoney());
 
-    $("#calcButton").removeClass("disabled").addClass("disabled")
+    $("#calcButton").removeClass("disabled").addClass("disabled").prop('class');
 
 }
 
