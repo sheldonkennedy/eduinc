@@ -97,9 +97,13 @@ function calculateFees() {
 
     $("#total").val("R" + total.formatMoney());
 
+    $(".feesresult").css("display", "block");
+
 }
 
 function reset() {
+
+    $(".feesresult").css("display", "none");
 
     $("#enrolment")[0].selectedIndex = 0;
     $("#enteringGrade")[0].selectedIndex = 0;
@@ -113,7 +117,7 @@ function reset() {
     $("#fetsubjects").val("R" + (0.0).formatMoney());
     $("#total").val("R" + (0.0).formatMoney());
 
-    $("#calcButton").removeClass("disabled").addClass("disabled").prop('class');
+    selectionChange();
 
 }
 
@@ -127,6 +131,7 @@ function selectionChange() {
 
     } else {
 
+        $(".feesresult").css("display", "none");
         $("#calcButton").removeClass("disabled");
 
     }
