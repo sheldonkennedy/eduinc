@@ -252,7 +252,7 @@
 		background: rgba(230, 235, 237, 0.25);
 		border-radius: 0.375em;
 		border: solid 1px rgba(210, 215, 217, 0.75);
-		font-family: "Avenir", sans-serif;
+		font-family: "Courier New", serif;
 		font-size: 1em;
 		padding: 0.25em 0.65em;
 	}
@@ -954,10 +954,6 @@
 				display: none;
 			}
 
-			table td {
-				min-width: 30%;
-			}
-
 		}
 
 		table thead {
@@ -1561,7 +1557,7 @@
 			}
 
 				#main > .inner > section {
-					padding: 3em 4em 1em 4em ;
+					padding: 3em 3.2em 1em 3.2em ;
 				}
 
 		}
@@ -1577,10 +1573,10 @@
 		-webkit-flex-shrink: 0;
 		-ms-flex-shrink: 0;
 		flex-shrink: 0;
-		-moz-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-		-webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-		-ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-		transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+		-moz-transition: margin-left 0.3s ease, box-shadow 0.3s ease;
+		-webkit-transition: margin-left 0.3s ease, box-shadow 0.3s ease;
+		-ms-transition: margin-left 0.3s ease, box-shadow 0.3s ease;
+		transition: margin-left 0.3s ease, box-shadow 0.3s ease;
 		background-color: #f5f6f7;
 		position: relative;
 		width: 26em;
