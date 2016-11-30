@@ -23,18 +23,16 @@ function setRadios() {
 onload = setRadios;
 
 feeValues = {
-     "4" : { monthly: 6264.00, annual:  6781.26, registration: 5312.40, deposit: 6264.00},
-     "5" : { monthly: 6264.00, annual:  6866.68, registration: 5312.40, deposit: 6264.00},
-     "6" : { monthly: 6264.00, annual:  7021.55, registration: 5312.40, deposit: 6264.00},
-     "7" : { monthly: 7606.00, annual:  7693.84, registration: 5312.40, deposit: 7606.00},
-     "8" : { monthly: 7606.00, annual:  8168.81, registration: 5312.40, deposit: 7606.00},
-     "9" : { monthly: 7606.00, annual:  8607.12, registration: 5312.40, deposit: 7606.00},
-    "10" : { monthly: 8920.00, annual:  8779.71, registration: 5312.40, deposit: 8920.00},
-    "11" : { monthly: 8920.00, annual: 12837.01, registration: 5312.40, deposit: 8920.00},
-    "12" : { monthly: 8920.00, annual:  8983.08, registration: 5312.40, deposit: 8920.00}
+     "4" : { monthly: 6264.00, annual:  6781.26, registration: 5312.40, deposit: 6264.00, fet: 0.0},
+     "5" : { monthly: 6264.00, annual:  6866.68, registration: 5312.40, deposit: 6264.00, fet: 0.0},
+     "6" : { monthly: 6264.00, annual:  7021.55, registration: 5312.40, deposit: 6264.00, fet: 0.0},
+     "7" : { monthly: 7606.00, annual:  7693.84, registration: 5312.40, deposit: 7606.00, fet: 0.0},
+     "8" : { monthly: 7606.00, annual:  8168.81, registration: 5312.40, deposit: 7606.00, fet: 0.0},
+     "9" : { monthly: 7606.00, annual:  8607.12, registration: 5312.40, deposit: 7606.00, fet: 0.0},
+    "10" : { monthly: 8920.00, annual:  8779.71, registration: 5312.40, deposit: 8920.00, fet: 1687.50},
+    "11" : { monthly: 8920.00, annual: 12837.01, registration: 5312.40, deposit: 8920.00, fet: 1687.50},
+    "12" : { monthly: 8920.00, annual:  8983.08, registration: 5312.40, deposit: 8920.00, fet: 1687.50}
 }
-
-fetValue = 1687.50;
 
 function calculateFees() {
 
@@ -74,6 +72,17 @@ function calculateFees() {
         total += feeValues[enteringGrade].annual;
         $("#curriculum").val("R" +feeValues[enteringGrade].annual.formatMoney());
 
+        if (optionalFET == "egd") {
+
+            total += feeValues[enteringGrade].fet;
+            $("#fetsubjects").val("R" + feeValues[enteringGrade].fet.formatMoney());
+
+        } else {
+
+            $("#fetsubjects").val("R" + (0.0).formatMoney());
+
+        }
+
 
 
     } else {
@@ -84,16 +93,7 @@ function calculateFees() {
 
     }
 
-    if (optionalFET == "egd") {
 
-        total += fetValue;
-        $("#fetsubjects").val("R" + fetValue.formatMoney());
-
-    } else {
-
-        $("#fetsubjects").val("R" + (0.0).formatMoney());
-
-    }
 
     $("#total").val("R" + total.formatMoney());
 
