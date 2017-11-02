@@ -90,18 +90,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							<h3>Select an option from each of these four sections</h3>
 								<table class="fees">
 									<tbody>
+
 										<tr>
-											<td>Enrolment</td>
-											<td>
-												<select name="select" id="enrolment" onChange="selectionChange()">
-													<option value="" selected>Select...</option>
-													<option value="newstudent">New Student</option>
-													<option value="currentlyenrolled">Currently Enrolled</option>
-  												</select>
-  											</td>
-										</tr>
-										<tr>
-											<td>Entering Grade</td>
+											<td>Grade</td>
 											<td>
 												<select name="select" id="enteringGrade" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
@@ -116,27 +107,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 													<option value="12">12</option>
   												</select>
   											</td>
+                                            <td>Select your child's Grade (4 to 12)</td>
 										</tr>
+                                        <tr>
+                                            <td>New Student</td>
+                                            <td>
+                                                <select name="select" id="enrolment" onChange="selectionChange()">
+                                                    <option value="" selected>Select...</option>
+                                                    <option value="newstudent">New Student</option>
+                                                    <option value="currentlyenrolled">Currently Enrolled</option>
+                                                </select>
+                                            </td>
+                                            <td>Is this the child's first registration?</td>
+                                        </tr>
 										<tr>
-											<td>Optional FET Subjects</td>
+											<td>E.G.D</td>
 											<td>
 												<select name="select" id="optionalFET" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
-													<option value="egd">EGD</option>
-													<option value="none">None</option>
+													<option value="egd">Yes</option>
+													<option value="none">No</option>
   												</select>
   											</td>
+                                            <td>Is your child taking E.G.D. for the first time?</td>
 										</tr>
 										<tr>
-											<td>Payment Frequency</td>
+											<td>Payment Plan</td>
 											<td>
 												<select name="select" id="paymentFrequency" onChange="selectionChange()">
 													<option value="" selected>Select...</option>
 													<option value="permonth">Monthly</option>
-													<option value="perterm">Per Term (less 5%)</option>
-													<option value="peryear">Annually (less 8%)</option>
+													<option value="perterm">Per Term (-2%)</option>
+													<option value="peryear">Annually (-5%)</option>
   												</select>
   											</td>
+                                            <td>Are you paying per month, term, or year?</td>
 										</tr>
 									</tbody>
 								</table>
@@ -148,28 +153,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 								<table class="feesresult" style="display:none">
 									<tbody>
+
+                                        <tr class="formattotal"><td>For NEW Admissions when registering</td><td></td></tr>
+
 										<tr>
-											<td>Registration Fee<span>Includes VAT. This is a once-off fee and includes three golf shirts, a House shirt and badge, a school bag, administration, and enrolment.</span></td>
+											<td>Initial Joining Fee<span>This only applies to new admissions and includes the additional charges.</span></td>
 											<td><input id="registration" type="text" value="R0.00" readonly></td>
 										</tr>
+
+                                        <tr class="formattotal"><td>Payable at the start of the year</td><td></td></tr>
+
+                                        <tr>
+                                            <td>Additional Charges<span> Curriculum, Outings, Licences, Development and Sundries (Included in the Joining Fee for new pupils)</span></td>
+                                            <td><input id="curriculum" type="text" value="R0.00" readonly></td>
+                                        </tr>
+
+                                        <tr class="formattotal"><td>2018 Fees</td><td></td></tr>
+
 										<tr>
-											<td>Deposit<span>VAT does not apply.</span></td>
-											<td><input id="deposit" type="text" value="R0.00" readonly></td>
-										</tr>
-										<tr>
-											<td>Tuition Fee<span>VAT does not apply.</span></td>
+											<td>Annual Tuition Fee<span></span></td>
 											<td><input id="tuition" type="text" value="R0.00" readonly></td>
 										</tr>
+
+                                        <tr>
+                                            <td>I.E.B. Charges<span></span></td>
+                                            <td><input id="ieb" type="text" value="R0.00" readonly></td>
+                                        </tr>
+
 										<tr>
-											<td>Curriculum Fee<span>Includes VAT. This covers twenty student workbooks, textbooks and readers, Developmental Fund, printing, locker rental, IEB and ISASA registrations, outings, school photos, and creative art supplies for grades 4 to 9.</span></td>
-											<td><input id="curriculum" type="text" value="R0.00" readonly></td>
-										</tr>
-										<tr>
-											<td>FET Subjects Fee<span>Includes VAT.</span></td>
+											<td>&gt; subject : E.G.D<span>Only charged once when starting the subject (either in Gr 10 or 11) and used until the end of Gr 12</span></td>
 											<td><input id="fetsubjects" type="text" value="R0.00" readonly></td>
 										</tr>
+
+                                        <tr>
+                                            <td>Discount Allowed<span></span></td>
+                                            <td><input class="discountText" id="discount" type="text" value="R0.00" readonly></td>
+                                        </tr>
+
 										<tr class="formattotal">
-											<td>Total for 2017</td>
+                                            <td></td>
 											<td><input id="total" type="text" value="R0.00" readonly></td>
 										</tr>
 									</tbody>

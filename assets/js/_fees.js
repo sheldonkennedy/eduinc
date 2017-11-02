@@ -23,15 +23,15 @@ function setRadios() {
 onload = setRadios;
 
 feeValues = {
-     "4" : { monthly: 6264.00, annual:  6781.26, registration: 5312.40, deposit: 6264.00, fet: 0.0},
-     "5" : { monthly: 6264.00, annual:  6866.68, registration: 5312.40, deposit: 6264.00, fet: 0.0},
-     "6" : { monthly: 6264.00, annual:  7021.55, registration: 5312.40, deposit: 6264.00, fet: 0.0},
-     "7" : { monthly: 7606.00, annual:  7693.84, registration: 5312.40, deposit: 7606.00, fet: 0.0},
-     "8" : { monthly: 7606.00, annual:  8168.81, registration: 5312.40, deposit: 7606.00, fet: 0.0},
-     "9" : { monthly: 7606.00, annual:  8607.12, registration: 5312.40, deposit: 7606.00, fet: 0.0},
-    "10" : { monthly: 8920.00, annual:  8779.71, registration: 5312.40, deposit: 8920.00, fet: 1687.50},
-    "11" : { monthly: 8920.00, annual: 12837.01, registration: 5312.40, deposit: 8920.00, fet: 1687.50},
-    "12" : { monthly: 8920.00, annual:  8983.08, registration: 5312.40, deposit: 8920.00, fet: 1687.50}
+     "4" : { monthly: 8118.00, annual:  8392.94, registration: 18909.44, deposit: 0.00, egd: 0.0,     ieb: 0.0},
+     "5" : { monthly: 8118.00, annual:  8392.94, registration: 18909.44, deposit: 0.00, egd: 0.0,     ieb: 0.0},
+     "6" : { monthly: 8118.00, annual:  8392.94, registration: 19159.44, deposit: 0.00, egd: 0.0,     ieb: 250.0},
+     "7" : { monthly: 8948.90, annual:  9161.58, registration: 18909.44, deposit: 0.00, egd: 0.0,     ieb: 0.0},
+     "8" : { monthly: 8948.90, annual:  9161.58, registration: 18909.44, deposit: 0.00, egd: 0.0,     ieb: 0.0},
+     "9" : { monthly: 8948.90, annual:  9161.58, registration: 19159.44, deposit: 0.00, egd: 0.0,     ieb: 250.0},
+    "10" : { monthly: 9722.80, annual:  9161.58, registration: 18909.44, deposit: 0.00, egd: 1687.50, ieb: 0.0},
+    "11" : { monthly: 9722.80, annual: 12271.22, registration: 22217.72, deposit: 0.00, egd: 0.0,     ieb: 3100.0},
+    "12" : { monthly: 9722.80, annual: 12271.22, registration: 22217.72, deposit: 0.00, egd: 0.0,     ieb: 3100.0}
 }
 
 function calculateFees() {
@@ -50,21 +50,33 @@ function calculateFees() {
             total += feeValues[enteringGrade].registration;
             $("#registration").val("R" + feeValues[enteringGrade].registration.formatMoney());
 
-            total += feeValues[enteringGrade].deposit;
-            $("#deposit").val("R" +feeValues[enteringGrade].deposit.formatMoney());
+            //total += feeValues[enteringGrade].deposit;
+            //$("#deposit").val("R" +feeValues[enteringGrade].deposit.formatMoney());
+
 
         } else {
 
             $("#registration").val("R" + (0.0).formatMoney());
-            $("#deposit").val("R" + (0.0).formatMoney());
+
+            //$("#deposit").val("R" + (0.0).formatMoney());
 
         }
 
 
 
         var tuition = (feeValues[enteringGrade].monthly * 12)
-        if (paymentFrequency == "perterm") { tuition = tuition * 95.0/100.0 }
-        if (paymentFrequency == "peryear") { tuition = tuition * 92.0/100.0 }
+
+        var discount = 0.0;
+
+        if (paymentFrequency == "perterm") {
+            discount = tuition * 2/100.0
+            tuition = tuition - discount;
+        }
+
+        if (paymentFrequency == "peryear") {
+            discount = tuitioni * 5/100.0
+            tuition = tuition - discount;
+        }
 
         total += tuition
         $("#tuition").val("R" + tuition.formatMoney());
@@ -74,8 +86,9 @@ function calculateFees() {
 
         if (optionalFET == "egd") {
 
-            total += feeValues[enteringGrade].fet;
-            $("#fetsubjects").val("R" + feeValues[enteringGrade].fet.formatMoney());
+            total += feeValues[enteringGrade].egd;
+
+            $("#fetsubjects").val("R" + feeValues[enteringGrade].egd.formatMoney());
 
         } else {
 
@@ -83,6 +96,8 @@ function calculateFees() {
 
         }
 
+        total += feeValues[enteringGrade].ieb;
+        $("#ieb").val("R" + feeValues[enteringGrade].ieb.formatMoney());
 
 
     } else {
@@ -93,9 +108,21 @@ function calculateFees() {
 
     }
 
+    $("#discount").val("(R" + discount.formatMoney() + ")");
 
+    if (paymentFrequency == "permonth") {
 
-    $("#total").val("R" + total.formatMoney());
+        $("#total").val("12 Monthly Payments of R" + (total / 12).formatMoney());
+
+    } else if (paymentFrequency == "perterm") {
+
+        $("#total").val("3 Termly Payments of R" + (total / 3).formatMoney());
+
+    } else if (paymentFrequency == "peryear") {
+
+        $("#total").val("One payment in Dec 2017 of R" + (total).formatMoney());
+
+    }
 
     $(".feesresult").css("display", "block");
 
@@ -115,6 +142,7 @@ function reset() {
     $("#tuition").val("R" + (0.0).formatMoney());
     $("#curriculum").val("R" + (0.0).formatMoney());
     $("#fetsubjects").val("R" + (0.0).formatMoney());
+    $("#ieb").val("R" + (0.0).formatMoney());
     $("#total").val("R" + (0.0).formatMoney());
 
     selectionChange();

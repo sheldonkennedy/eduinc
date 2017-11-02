@@ -95,3 +95,9 @@ input[type="text"] {
 .formattotal td:last-child {
 	border-left: 0;
 }
+
+.discountText {
+
+    color: #ff0000 !important;
+
+}
