@@ -77,6 +77,9 @@ function calculateFees() {
 
         var tuition = (feeValues[enteringGrade].monthly * 12)
 
+        // Show the tuition before we calculate the discount
+        $("#tuition").val("R" + tuition.formatMoney());
+
         var discount = 0.0;
 
         if (paymentFrequency == "perterm") {
@@ -90,7 +93,7 @@ function calculateFees() {
         }
 
         total += tuition
-        $("#tuition").val("R" + tuition.formatMoney());
+
 
         //total += feeValues[enteringGrade].annual;
 
