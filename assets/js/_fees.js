@@ -58,7 +58,7 @@ function calculateFees() {
 
         if (enrolment == "newstudent") {
 
-            total += feeValues[enteringGrade].registration;
+            //total += feeValues[enteringGrade].registration;
             $("#registration").val("R" + feeValues[enteringGrade].registration.formatMoney());
 
             //total += feeValues[enteringGrade].deposit;
@@ -85,15 +85,25 @@ function calculateFees() {
         }
 
         if (paymentFrequency == "peryear") {
-            discount = tuitioni * 5/100.0
+            discount = tuition * 5/100.0
             tuition = tuition - discount;
         }
 
         total += tuition
         $("#tuition").val("R" + tuition.formatMoney());
 
-        total += feeValues[enteringGrade].annual;
-        $("#curriculum").val("R" +feeValues[enteringGrade].annual.formatMoney());
+        //total += feeValues[enteringGrade].annual;
+
+        if (enrolment != "newstudent") {
+
+            $("#curriculum").val("R" + feeValues[enteringGrade].annual.formatMoney());
+
+        } else {
+
+            $("#curriculum").val("R" + (0.0).formatMoney());
+
+        }
+
 
         if (optionalFET == "egd") {
 
